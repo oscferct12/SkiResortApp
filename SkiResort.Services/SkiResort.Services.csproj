@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Response\FileResponse.cs" />
+    <Compile Include="Entities\Route.cs" />
     <Compile Include="Interfaces\IDepthFirstSearchService.cs" />
     <Compile Include="Interfaces\IFileProcessingService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
