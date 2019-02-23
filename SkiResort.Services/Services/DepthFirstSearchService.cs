@@ -1,5 +1,6 @@
 ﻿using SkiResort.Services.Entities;
 using SkiResort.Services.Interfaces;
+using System.Collections.Generic;
 
 namespace SkiResort.Services.Services
 {
@@ -77,15 +78,18 @@ namespace SkiResort.Services.Services
         }
 
         /// <summary>
-        /// Gets the maximum path.
+        /// 
         /// </summary>
-        /// <param name="Path">The path.</param>
-        /// <param name="Drop">The drop.</param>
-        /// <param name="maxPathCoordXY">The maximum path coord xy.</param>
-        /// <param name="maxPath">The maximum path.</param>
-        /// <param name="maxDrop">The maximum drop.</param>
-        private  void GetMaxPath(int[,] Path, int[,] Drop, int[] maxXY, ref int maxPath, ref int maxDrop)
+        /// <param name="Path"></param>
+        /// <param name="Drop"></param>
+        /// <param name="maxXY"></param>
+        /// <param name="maxPath"></param>
+        /// <param name="maxDrop"></param>
+        /// <returns></returns>
+        public List<int> GetMaxPath(int[,] Path, int[,] Drop, int[] maxXY, int maxPath, int maxDrop)
         {
+            List<int> maxPathDrop = new List<int>();
+
             for (int i = 0; i < RowsNumber; i++)
             {
                 for (int j = 0; j < ColumnNumber; j++)
@@ -113,7 +117,58 @@ namespace SkiResort.Services.Services
                     }
                 }
             }
+            maxPathDrop.Add(maxPath);
+            maxPathDrop.Add(maxDrop);
+
+            return maxPathDrop;
         }
 
+        /// <summary>
+        /// DFSs the length of for maximum path.
+        /// </summary>
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
+        /// <param name="GeoMap">The geo map.</param>
+        /// <returns></returns>
+        public List<int> DFSForMaxPathLength(int x, int y, int[,] GeoMap)
+        {
+            List<int> list = new List<int>();
+            List<int> currentPathList = new List<int>();
+
+            // Searching UP ▲ Direction
+            if (y > 0 && GeoMap[x, y] > GeoMap[x, y - 1])
+            {
+                currentPathList = DFSForMaxPathLength(x, y - 1, GeoMap);
+                if (currentPathList.Count > list.Count)
+                    list = currentPathList;
+            }
+
+            // Searching DOWN ▼ Direction
+            if (y < (ColumnNumber - 1) && GeoMap[x, y] > GeoMap[x, y + 1])
+            {
+                currentPathList = DFSForMaxPathLength(x, y + 1, GeoMap);
+                if (currentPathList.Count > list.Count)
+                    list = currentPathList;
+            }
+
+            // Searching LEFT ◄ Direction
+            if (x > 0 && GeoMap[x, y] > GeoMap[x - 1, y])
+            {
+                currentPathList = DFSForMaxPathLength(x - 1, y, GeoMap);
+                if (currentPathList.Count > list.Count)
+                    list = currentPathList;
+            }
+
+            // Searching RIGHT ► Direction
+            if (x < (RowsNumber - 1) && GeoMap[x, y] > GeoMap[x + 1, y])
+            {
+                currentPathList = DFSForMaxPathLength(x + 1, y, GeoMap);
+                if (currentPathList.Count > list.Count)
+                    list = currentPathList;
+            }
+
+            list.Add(y); list.Add(x);
+            return list;
+        }
     }
 }

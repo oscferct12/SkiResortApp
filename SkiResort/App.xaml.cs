@@ -11,6 +11,41 @@
     {
 
         #region Propertys
+        /// <summary>
+        /// The max path.
+        /// </summary>
+        private static int _maxPath;
+
+
+        /// <summary>
+        /// The max path.
+        /// </summary>
+        public static int MaxPath
+        {
+            get { return _maxPath; }
+            set
+            {
+                _maxPath = value;
+            }
+        }
+
+        /// <summary>
+        /// The max drop.
+        /// </summary>
+        private static int _maxDrop;
+
+
+        /// <summary>
+        /// The max drop.
+        /// </summary>
+        public static int MaxDrop
+        {
+            get { return _maxDrop; }
+            set
+            {
+                _maxDrop = value;
+            }
+        }
 
         /// <summary>
         /// The file information variable.
