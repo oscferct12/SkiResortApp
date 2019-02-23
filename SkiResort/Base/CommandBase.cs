@@ -92,7 +92,6 @@ namespace SkiResort.Base
             {
                 throw ex;
             }
-
         }
 
         #endregion ICommand Members

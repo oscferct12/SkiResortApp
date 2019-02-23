@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         xmlns:viewmodel="clr-namespace:SkiResort.ViewModel"
-        Title="{Binding Title}" Height="450" Width="800">
+        Title="{Binding Title}" Height="450" Width="800"
+        ResizeMode="NoResize">
 
     <Window.Resources>
         <Image x:Key="MyImage" Source ="/images/LookMountain.png"/>
     </Window.Resources>
-    
+
     <Window.DataContext>
         <viewmodel:SearchFilePageViewModel/>
     </Window.DataContext>
@@ -20,13 +21,17 @@
           HorizontalAlignment="Left"
           VerticalAlignment="Top"
           Opacity="1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="701*"/>
+            <ColumnDefinition Width="99*"/>
+        </Grid.ColumnDefinitions>
 
         <Path Width="789.286"
               Height="420.865"
               HorizontalAlignment="Left"
               VerticalAlignment="Top"
               Data="M 0,21 C0,3.8660430908203125 3.8660430908203125,0 21,0 21,0 926,0 926,0 943.1339721679688,0 947,3.8660430908203125 947,21 947,21 947,673 947,673 947,690.1339721679688 943.1339721679688,694 926,694 926,694 21,694 21,694 3.8660430908203125,694 0,690.1339721679688 0,673 0,673 0,21 0,21 z"
-              Stretch="Fill">
+              Stretch="Fill" Grid.ColumnSpan="2">
             <Path.Fill>
                 <LinearGradientBrush StartPoint="0.48891235480464623,0.2564841498559078" EndPoint="0.48891235480464623,0.861671469740634">
                     <LinearGradientBrush.GradientStops>
@@ -39,7 +44,7 @@
                 </LinearGradientBrush>
             </Path.Fill>
         </Path>
-        <Grid x:Name="LayoutRoot">
+        <Grid x:Name="LayoutRoot" Grid.ColumnSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="110" />
                 <RowDefinition />
@@ -69,13 +74,13 @@
                            TextWrapping="Wrap" />
             </Grid>
         </Grid>
-        <Grid Grid.Row="1">
+        <Grid Grid.ColumnSpan="2">
             <UniformGrid>
-                <Button Margin="0,90,0,0"
+                <Button Margin="300,170,344,127"
                         Background="Transparent"
                 		Command="{Binding SearchFileCommand}"
                         HorizontalAlignment="Center" 
-                        VerticalAlignment="Center" Width="200" Height="200" 
+                        VerticalAlignment="Center" Width="156" Height="153" 
                         ToolTip="Look for the mountain"
                         Content="{StaticResource MyImage}"/>
             </UniformGrid>

@@ -122,5 +122,11 @@
   <ItemGroup>
     <Resource Include="Images\LookMountain.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SkiResort.Services\SkiResort.Services.csproj">
+      <Project>{3F3977C7-8984-4B7D-A0D5-404AE1242FD8}</Project>
+      <Name>SkiResort.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,13 +1,19 @@
-﻿using Microsoft.Win32;
-using SkiResort.Base;
-using SkiResort.Resources;
-using System;
-using System.Windows.Input;
-
-namespace SkiResort.ViewModel
+﻿namespace SkiResort.ViewModel
 {
+    using Microsoft.Win32;
+    using SkiResort.Base;
+    using SkiResort.Resources;
+    using SkiResort.Services.Interfaces;
+    using SkiResort.Services.Services;
+    using SkiResort.View;
+    using System.Windows.Input;
     public class SearchFilePageViewModel : ViewModelBase
     {
+        #region Propertys
+        /// <summary>
+        /// The service.
+        /// </summary>
+        IFileProcessingService _service;
 
         /// <summary>
         /// The image source.
@@ -47,6 +53,7 @@ namespace SkiResort.ViewModel
                 OnPropertyChanged("SearchFileCommand");
             }
         }
+        #endregion
         /// <summary>
         /// The constructor.
         /// </summary>
@@ -57,7 +64,7 @@ namespace SkiResort.ViewModel
             RegisterCommand();
         }
 
-
+        #region method
         /// <summary>
         /// Register Command
         /// </summary>
@@ -83,7 +90,27 @@ namespace SkiResort.ViewModel
             if (result == true)
             {
                 string filename = dlg.FileName;
+                ReadFileSelected(filename);
             }
         }
+
+        /// <summary>
+        /// Read the file selected.
+        /// </summary>
+        /// <param name="path"></param>
+        private void ReadFileSelected(string path)
+        {
+            _service = new FileProcessingService();
+            var response =_service.ReadAllFile(path);
+
+            if (response != null)
+            {
+                App.FileInformation = response;
+                SkiPage skiPage = new SkiPage();
+                skiPage.Show();
+            }
+
+        }
+        #endregion
     }
 }

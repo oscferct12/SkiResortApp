@@ -41,8 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Response\FileResponse.cs" />
+    <Compile Include="Interfaces\IDepthFirstSearchService.cs" />
     <Compile Include="Interfaces\IFileProcessingService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DepthFirstSearchService.cs" />
     <Compile Include="Services\FileProcessingService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
