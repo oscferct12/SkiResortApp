@@ -61,6 +61,33 @@ namespace SkiResort.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a /images/LookMountain.png.
+        /// </summary>
+        public static string SrcImageLookMountain {
+            get {
+                return ResourceManager.GetString("SrcImageLookMountain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a /images/SkiingIcon.png.
+        /// </summary>
+        public static string SrcImageSkiIcon {
+            get {
+                return ResourceManager.GetString("SrcImageSkiIcon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Look for the Mountain.
+        /// </summary>
+        public static string TextLookFileMountain {
+            get {
+                return ResourceManager.GetString("TextLookFileMountain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Ski Resort in Austria.
         /// </summary>
         public static string TitleSkiPage {

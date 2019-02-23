@@ -55,13 +55,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Base\CommandBase.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\SearchFilePageViewModel.cs" />
     <Compile Include="ViewModel\SkiPageViewModel.cs" />
     <Compile Include="Base\ViewModelBase.cs" />
+    <Compile Include="View\SearchFilePage.xaml.cs">
+      <DependentUpon>SearchFilePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\SkiPage.xaml.cs">
       <DependentUpon>SkiPage.xaml</DependentUpon>
     </Compile>
@@ -69,6 +74,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\SearchFilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\SkiPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -105,8 +114,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SkiingIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\LookMountain.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

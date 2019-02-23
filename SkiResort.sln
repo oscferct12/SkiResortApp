@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkiResort", "SkiResort\SkiResort.csproj", "{5CAE9C4D-CBA9-42B2-BD86-22837D215037}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkiResort.Services", "SkiResort.Services\SkiResort.Services.csproj", "{3F3977C7-8984-4B7D-A0D5-404AE1242FD8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5CAE9C4D-CBA9-42B2-BD86-22837D215037}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CAE9C4D-CBA9-42B2-BD86-22837D215037}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CAE9C4D-CBA9-42B2-BD86-22837D215037}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F3977C7-8984-4B7D-A0D5-404AE1242FD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F3977C7-8984-4B7D-A0D5-404AE1242FD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F3977C7-8984-4B7D-A0D5-404AE1242FD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F3977C7-8984-4B7D-A0D5-404AE1242FD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

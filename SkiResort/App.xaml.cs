@@ -15,8 +15,8 @@
         {
             base.OnStartup(e);
 
-            SkiPage skiPage = new SkiPage();
-            skiPage.Show();
+            SearchFilePage searchFile = new SearchFilePage();
+            searchFile.Show();
 
         }
     }
