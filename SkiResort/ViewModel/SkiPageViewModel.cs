@@ -7,12 +7,19 @@
     using SkiResort.Services.Entities.Response;
     using SkiResort.Services.Interfaces;
     using SkiResort.Services.Services;
-    using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
 
     public class SkiPageViewModel : ViewModelBase
     {
         #region Property
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ObservableCollection<CoordinateModel> ListResult { get; set; }
+
+
         /// <summary>
         /// The service.
         /// </summary>
@@ -105,7 +112,6 @@
             App.MaxPath = maxPathDrop[0];
             App.MaxDrop = maxPathDrop[1];
             AddPathToList(maxPathCoordXY, climbMap);
-
         }
 
         /// <summary>
@@ -113,14 +119,13 @@
         /// </summary>
         private void AddPathToList(int[] maxPathCoordXY, int[,] climbMap)
         {
-            List<CoordinateModel> listResult = new List<CoordinateModel>();
+            ListResult = new ObservableCollection<CoordinateModel>();
             List<int> pathList = _service.DFSForMaxPathLength(maxPathCoordXY[0], maxPathCoordXY[1], climbMap);
             pathList.Reverse();
 
             int[] CoordXY = new int[2];
             int index = 0;
             int temp = 0;
-            string printResult = string.Empty;
 
             foreach (var item in pathList)
             {
@@ -129,16 +134,15 @@
 
                 if (index % 2 == 0)
                 {
-                    listResult.Add(new CoordinateModel() {Xcoord = temp , Ycoord = item , Value = climbMap[CoordXY[0], CoordXY[1]] });
+                    ListResult.Add(new CoordinateModel() { Xcoord = temp, Ycoord = item, Value = climbMap[CoordXY[0], CoordXY[1]] });
                 }
-
                 temp = item;
             }
+
+            App.ListResult = ListResult;
+
         }
         #endregion
     }
-
-
-
 }
 

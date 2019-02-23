@@ -1,7 +1,9 @@
 ﻿namespace SkiResort
 {
+    using SkiResort.Models;
     using SkiResort.Services.Entities.Response;
     using SkiResort.View;
+    using System.Collections.ObjectModel;
     using System.Windows;
 
     /// <summary>
@@ -11,6 +13,25 @@
     {
 
         #region Propertys
+
+        /// <summary>
+        /// The max path.
+        /// </summary>
+        private static ObservableCollection<CoordinateModel> _listResult;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static ObservableCollection<CoordinateModel> ListResult
+        {
+            get { return _listResult; }
+            set
+            {
+                _listResult = value;
+            }
+        }
+
+
         /// <summary>
         /// The max path.
         /// </summary>

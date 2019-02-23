@@ -4,65 +4,32 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewmodel="clr-namespace:SkiResort.ViewModel"
+        xmlns:views="clr-namespace:SkiResort.View"
         mc:Ignorable="d"
-        Title="{Binding Title}" Height="450" Width="800">
+        Title="{Binding Title}" Height="800" Width="1024">
     <Window.DataContext>
         <viewmodel:SkiPageViewModel/>
     </Window.DataContext>
-    <Grid x:Name="grid"
-          Width="800"
-          Height="450"
-          HorizontalAlignment="Left"
-          VerticalAlignment="Top"
-          Opacity="1">
+    <Grid>
+        <ScrollViewer>
+            <Grid x:Name="container" Margin="5,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-        <Path Width="789.286"
-              Height="420.865"
-              HorizontalAlignment="Left"
-              VerticalAlignment="Top"
-              Data="M 0,21 C0,3.8660430908203125 3.8660430908203125,0 21,0 21,0 926,0 926,0 943.1339721679688,0 947,3.8660430908203125 947,21 947,21 947,673 947,673 947,690.1339721679688 943.1339721679688,694 926,694 926,694 21,694 21,694 3.8660430908203125,694 0,690.1339721679688 0,673 0,673 0,21 0,21 z"
-              Stretch="Fill">
-            <Path.Fill>
-                <LinearGradientBrush StartPoint="0.48891235480464623,0.2564841498559078" EndPoint="0.48891235480464623,0.861671469740634">
-                    <LinearGradientBrush.GradientStops>
-                        <GradientStopCollection>
-                            <GradientStop Offset="0" Color="White" />
-                            <GradientStop Offset="0.4555560052394867" Color="LightSkyBlue" />
-                            <GradientStop Offset="0.949999988079071" Color="Blue"/>
-                        </GradientStopCollection>
-                    </LinearGradientBrush.GradientStops>
-                </LinearGradientBrush>
-            </Path.Fill>
-        </Path>
-        <Grid x:Name="LayoutRoot">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="110" />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Grid HorizontalAlignment="Stretch" >
-                <Grid Width="70"
-                      Height="88"
-                      Margin="80,10,0,0"
-                      HorizontalAlignment="Left"
-                      VerticalAlignment="Top"
-                      Opacity="1">
-                    <Image Width="190"
-                           Height="122"
-                           HorizontalAlignment="Left"
-                           VerticalAlignment="Center"
-                           Source= "{Binding ImageSource}" Margin="-74,53,-46,-87" />
-                </Grid>
-                <TextBlock Margin="200,30,0,0"
-                           HorizontalAlignment="left"
-                           VerticalAlignment="top"
-                           FontSize="42"
-                           FontWeight="Bold"
-                           Foreground="#0082c5"
-                           Opacity="1"
-                           Text="{Binding Title}"
-                           TextAlignment="left"
-                           TextWrapping="Wrap" />
+                <StackPanel Margin="0,-50,0,0" Grid.Column="0">
+                    <views:MaterialCards/>
+                </StackPanel>
+
+                <StackPanel Margin="5,22,5,0" Grid.Column="1">
+                    <views:PointStateExample Height="355"/>
+                </StackPanel>
             </Grid>
-        </Grid>
+        </ScrollViewer>
     </Grid>
 </Window>

@@ -1,8 +1,7 @@
-﻿using SkiResort.Services.Entities;
-using System.Collections.Generic;
-
-namespace SkiResort.Services.Interfaces
+﻿namespace SkiResort.Services.Interfaces
 {
+    using SkiResort.Services.Entities;
+    using System.Collections.Generic;
     public interface IDepthFirstSearchService
     {
 
