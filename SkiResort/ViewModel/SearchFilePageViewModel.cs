@@ -6,6 +6,8 @@
     using SkiResort.Services.Interfaces;
     using SkiResort.Services.Services;
     using SkiResort.View;
+    using System.IO;
+    using System.Windows;
     using System.Windows.Input;
     public class SearchFilePageViewModel : ViewModelBase
     {
@@ -101,13 +103,24 @@
         private void ReadFileSelected(string path)
         {
             _service = new FileProcessingService();
-            var response =_service.ReadAllFile(path);
+           bool ValidExtension = Path.GetExtension(path) == ".txt" ? true :false;
+            if (!ValidExtension)
+            {
+                MessageBox.Show(AppResources.InvalidExtensionFIle, "Invalid Extension");
+                return;
+            }
+            var response = _service.ReadAllFile(path);
 
-            if (response != null)
+            if (response != null && !response.IsCorruptFile)
             {
                 App.FileInformation = response;
                 SkiPage skiPage = new SkiPage();
                 skiPage.Show();
+            }
+            else
+            {
+                MessageBox.Show(AppResources.FileCantRead, "Error");
+                return;
             }
 
         }

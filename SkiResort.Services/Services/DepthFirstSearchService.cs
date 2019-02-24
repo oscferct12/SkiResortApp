@@ -33,7 +33,7 @@ namespace SkiResort.Services.Services
 
             Route route = new Route();
 
-            // Searching UP ▲ Direction
+            // Searching UP  Direction
             if (j > 0 && climbMap[i, j] > climbMap[i, j - 1])
             {
                 route = FunctionDFS(i, j - 1, climbMap);
@@ -43,7 +43,7 @@ namespace SkiResort.Services.Services
                     pathAndDrop = route;
             }
 
-            // Searching DOWN ▼ Direction
+            // Searching DOWN  Direction
             if (j < (ColumnNumber - 1) && climbMap[i, j] > climbMap[i, j + 1])
             {
                 route = FunctionDFS(i, j + 1, climbMap);
@@ -52,7 +52,7 @@ namespace SkiResort.Services.Services
                     pathAndDrop = route;
             }
 
-            // Searching LEFT ◄ Direction
+            // Searching LEFT Direction
             if (i > 0 && climbMap[i, j] > climbMap[i - 1, j])
             {
                 route = FunctionDFS(i - 1, j, climbMap);
@@ -61,7 +61,7 @@ namespace SkiResort.Services.Services
                     pathAndDrop = route;
             }
 
-            // Searching RIGHT ► Direction
+            // Searching RIGHT  Direction
             if (i < (RowsNumber - 1) && climbMap[i, j] > climbMap[i + 1, j])
             {
                 route = FunctionDFS(i + 1, j, climbMap);
@@ -130,39 +130,39 @@ namespace SkiResort.Services.Services
         /// <param name="y">The y.</param>
         /// <param name="GeoMap">The geo map.</param>
         /// <returns></returns>
-        public List<int> DFSForMaxPathLength(int x, int y, int[,] GeoMap)
+        public List<int> DFSForMaxPathLength(int x, int y, int[,] climbMap)
         {
             List<int> list = new List<int>();
             List<int> currentPathList = new List<int>();
 
-            // Searching UP ▲ Direction
-            if (y > 0 && GeoMap[x, y] > GeoMap[x, y - 1])
+            // Searching UP Direction
+            if (y > 0 && climbMap[x, y] > climbMap[x, y - 1])
             {
-                currentPathList = DFSForMaxPathLength(x, y - 1, GeoMap);
+                currentPathList = DFSForMaxPathLength(x, y - 1, climbMap);
                 if (currentPathList.Count > list.Count)
                     list = currentPathList;
             }
 
-            // Searching DOWN ▼ Direction
-            if (y < (ColumnNumber - 1) && GeoMap[x, y] > GeoMap[x, y + 1])
+            // Searching DOWN  Direction
+            if (y < (ColumnNumber - 1) && climbMap[x, y] > climbMap[x, y + 1])
             {
-                currentPathList = DFSForMaxPathLength(x, y + 1, GeoMap);
+                currentPathList = DFSForMaxPathLength(x, y + 1, climbMap);
                 if (currentPathList.Count > list.Count)
                     list = currentPathList;
             }
 
-            // Searching LEFT ◄ Direction
-            if (x > 0 && GeoMap[x, y] > GeoMap[x - 1, y])
+            // Searching LEFT Direction
+            if (x > 0 && climbMap[x, y] > climbMap[x - 1, y])
             {
-                currentPathList = DFSForMaxPathLength(x - 1, y, GeoMap);
+                currentPathList = DFSForMaxPathLength(x - 1, y, climbMap);
                 if (currentPathList.Count > list.Count)
                     list = currentPathList;
             }
 
-            // Searching RIGHT ► Direction
-            if (x < (RowsNumber - 1) && GeoMap[x, y] > GeoMap[x + 1, y])
+            // Searching RIGHT Direction
+            if (x < (RowsNumber - 1) && climbMap[x, y] > climbMap[x + 1, y])
             {
-                currentPathList = DFSForMaxPathLength(x + 1, y, GeoMap);
+                currentPathList = DFSForMaxPathLength(x + 1, y, climbMap);
                 if (currentPathList.Count > list.Count)
                     list = currentPathList;
             }

@@ -61,6 +61,24 @@ namespace SkiResort.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a This file can&apos;t read.
+        /// </summary>
+        public static string FileCantRead {
+            get {
+                return ResourceManager.GetString("FileCantRead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Sorry, this file type is not permitted.
+        /// </summary>
+        public static string InvalidExtensionFIle {
+            get {
+                return ResourceManager.GetString("InvalidExtensionFIle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a /images/LookMountain.png.
         /// </summary>
         public static string SrcImageLookMountain {

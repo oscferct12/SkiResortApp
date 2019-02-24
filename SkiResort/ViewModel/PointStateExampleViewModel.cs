@@ -2,60 +2,52 @@
 {
     using LiveCharts;
     using LiveCharts.Configurations;
-    using LiveCharts.Defaults;
     using SkiResort.Base;
     using SkiResort.Models;
-    using System;
     using System.Collections.ObjectModel;
-    using System.Windows;
-    using System.Windows.Media;
+
     public class PointStateExampleViewModel : ViewModelBase
     {
 
+        /// <summary>
+        /// The max path.
+        /// </summary>
+        private static ObservableCollection<CoordinateModel> _listResult;
 
         /// <summary>
-        /// The list with the values solution.
+        /// 
         /// </summary>
-        public ObservableCollection<CoordinateModel> ListValues { get; set; }
-
-        public Func<double, string> Formatter { get; set; }
-        public ChartValues<ObservableValue> Values { get; set; }
-        public Brush DangerBrush { get; set; }
-        public CartesianMapper<ObservableValue> Mapper { get; set; }
-
-        private void UpdateDataOnClick(object sender, RoutedEventArgs e)
+        public static ObservableCollection<CoordinateModel> ListResult
         {
-            var r = new Random();
-            foreach (var observable in Values)
+            get { return _listResult; }
+            set
             {
-                observable.Value = r.Next(10, 400);
+                _listResult = value;
             }
         }
 
+        public ChartValues<CoordinateModel> Values { get; set; }
+        public CartesianMapper<CoordinateModel> Mapper { get; set; }
+
+
         public PointStateExampleViewModel()
         {
-            ListValues = new ObservableCollection<CoordinateModel>(App.ListResult);
-            var r = new Random();
-            Values = new ChartValues<ObservableValue>();
-
-            foreach (var item in ListValues)
+            ListResult = new ObservableCollection<CoordinateModel>(App.ListResult);
+            Values = new ChartValues<CoordinateModel>();
+            foreach (var item in ListResult)
             {
-                ObservableValue observableValue = new ObservableValue();
-                observableValue.Value = (double)item.Value;
-                Values.Add(observableValue);
+
+                CoordinateModel coordinate = new CoordinateModel();
+                coordinate = item;
+
+                Values.Add(coordinate);
             }
 
             //Lets define a custom mapper, to set fill and stroke
             //according to chart values...
-            Mapper = Mappers.Xy<ObservableValue>()
-                .X((item, index) => index)
-                .Y(item => item.Value)
-                .Fill(item => item.Value > 200 ? DangerBrush : null)
-                .Stroke(item => item.Value > 200 ? DangerBrush : null);
-
-            Formatter = x => x + " ms";
-
-            DangerBrush = new SolidColorBrush(Color.FromRgb(238, 83, 80));
+            Mapper = Mappers.Xy<CoordinateModel>()
+             .X(model => model.Xcoord)
+             .Y(model => model.Value);
         }
     }
 }

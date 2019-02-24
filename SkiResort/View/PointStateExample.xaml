@@ -27,8 +27,8 @@
         <!--<Border Grid.Row="0" Grid.RowSpan="3" Background="#CE2156" ></Border>-->
         <lvc:CartesianChart Grid.Row="1">
             <lvc:CartesianChart.Series>
-                <lvc:LineSeries Values="{Binding ListValues}" 
-                                PointGeometrySize="20" 
+                <lvc:LineSeries Values="{Binding Values}" 
+                                PointGeometrySize="20"
                                 PointForeground="White"
                                 Configuration="{Binding Mapper}"/>
             </lvc:CartesianChart.Series>
