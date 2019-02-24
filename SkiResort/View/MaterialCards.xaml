@@ -8,9 +8,9 @@
              d:DesignHeight="500" d:DesignWidth="480"
              Margin="0"
              xmlns:viewmodel="clr-namespace:SkiResort.ViewModel"
-             Background="#E9E9E9">
+             Background="Transparent">
     <UserControl.DataContext>
-        <viewmodel:MaterialClassViewModel/>
+        <viewmodel:MaterialCardsViewModel/>
     </UserControl.DataContext>
     <Grid Height="500" Width="480" >
         <Grid.ColumnDefinitions>

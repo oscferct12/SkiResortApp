@@ -94,7 +94,6 @@
 
             SearchFilePage searchFile = new SearchFilePage();
             searchFile.Show();
-
         }
     }
 }

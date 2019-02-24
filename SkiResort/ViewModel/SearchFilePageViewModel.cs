@@ -103,7 +103,7 @@
         private void ReadFileSelected(string path)
         {
             _service = new FileProcessingService();
-           bool ValidExtension = Path.GetExtension(path) == ".txt" ? true :false;
+            bool ValidExtension = Path.GetExtension(path) == ".txt" ? true : false;
             if (!ValidExtension)
             {
                 MessageBox.Show(AppResources.InvalidExtensionFIle, "Invalid Extension");

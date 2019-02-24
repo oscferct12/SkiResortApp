@@ -8,8 +8,10 @@
     using System.Threading.Tasks;
     using System.Windows;
 
-    public class MaterialClassViewModel
+    public class MaterialCardsViewModel
     {
+        private double _trend;
+
         /// <summary>
         /// The path lenght.
         /// </summary>
@@ -32,9 +34,6 @@
             }
         }
 
-        private double _trend;
-
-
         public SeriesCollection LastHourSeries { get; set; }
         public SeriesCollection LastHourSeriesB { get; set; }
 
@@ -51,7 +50,7 @@
             }
         }
 
-        public MaterialClassViewModel()
+        public MaterialCardsViewModel()
         {
             PathLenght = App.MaxPath;
             MaxDrop = App.MaxDrop;

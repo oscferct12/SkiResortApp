@@ -16,6 +16,11 @@ namespace SkiResort.Services.Services
         /// </summary>
         private int ColumnNumber { get; set; }
 
+        /// <summary>
+        /// applying DFS algorithm
+        /// </summary>
+        /// <param name="rowsNumber"></param>
+        /// <param name="columnNumber"></param>
         public DepthFirstSearchService(int rowsNumber, int columnNumber)
         {
             RowsNumber = rowsNumber;
@@ -124,11 +129,11 @@ namespace SkiResort.Services.Services
         }
 
         /// <summary>
-        /// DFSs the length of for maximum path.
+        /// Max and Drop the Route.
         /// </summary>
         /// <param name="x">The x.</param>
         /// <param name="y">The y.</param>
-        /// <param name="GeoMap">The geo map.</param>
+        /// <param name="climbMap">The geo map.</param>
         /// <returns></returns>
         public List<int> DFSForMaxPathLength(int x, int y, int[,] climbMap)
         {
