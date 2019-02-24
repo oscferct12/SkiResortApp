@@ -3,7 +3,9 @@
     using LiveCharts;
     using LiveCharts.Defaults;
     using LiveCharts.Wpf;
+    using SkiResort.Models;
     using System;
+    using System.Collections.ObjectModel;
     using System.Threading;
     using System.Threading.Tasks;
     using System.Windows;
@@ -11,6 +13,7 @@
     public class MaterialCardsViewModel
     {
         private double _trend;
+
 
         /// <summary>
         /// The path lenght.
@@ -63,11 +66,11 @@
                     {
                         new ObservableValue(MaxDrop),
                         new ObservableValue(MaxDrop),
-                        new ObservableValue(MaxDrop),
                         new ObservableValue(MaxDrop)
                     }
                 }
             };
+
 
             LastHourSeries = new SeriesCollection
             {
@@ -95,14 +98,10 @@
                 while (true)
                 {
                     Thread.Sleep(2000);
-                    //_trend += (r.NextDouble() > 0.3 ? 1 : -1) * r.Next(0, 5);
                     Application.Current.Dispatcher.Invoke(() =>
                     {
                         LastHourSeries[0].Values.Add(new ObservableValue(_trend));
-                        LastHourSeries[0].Values.RemoveAt(0);
-
                         LastHourSeriesB[0].Values.Add(new ObservableValue(_trend));
-                        LastHourSeriesB[0].Values.RemoveAt(0);
                     });
                 }
             });

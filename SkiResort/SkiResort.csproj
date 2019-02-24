@@ -172,5 +172,9 @@
   <ItemGroup>
     <Resource Include="Images\ms-icon-310x310.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="4x4.txt" />
+    <Resource Include="map.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
