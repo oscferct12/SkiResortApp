@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewmodel="clr-namespace:SkiResort.ViewModel"
+        xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
         xmlns:views="clr-namespace:SkiResort.View"
         mc:Ignorable="d"
         Title="{Binding Title}" Height="800" Width="1024">
@@ -29,6 +30,22 @@
                 <StackPanel Margin="5,22,5,0" Grid.Column="1">
                     <views:PointStateExample Height="355"/>
                 </StackPanel>
+
+                <StackPanel Margin="5,-50,5,0" Grid.Row="1" Grid.ColumnSpan="2">
+                    <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Margin="0 5 0 0">Array Route Skii</TextBlock>
+                    <smtx:XamlDisplay Key="lists_5">
+                        <ListView ItemsSource="{Binding ListResult}">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Xcoord}" Header="X coordinate" />
+                                    <GridViewColumn DisplayMemberBinding="{Binding Ycoord}" Header="Y coordinate" />
+                                    <GridViewColumn DisplayMemberBinding="{Binding Value}" Header="Value" />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </smtx:XamlDisplay>
+                </StackPanel>
+
             </Grid>
         </ScrollViewer>
     </Grid>

@@ -138,7 +138,6 @@
                 }
                 temp = item;
             }
-
             App.ListResult = ListResult;
 
         }
