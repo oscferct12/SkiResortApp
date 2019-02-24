@@ -61,11 +61,29 @@ namespace SkiResort.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a mailto://oscferct@hotmail.com.
+        /// </summary>
+        public static string EmailTo {
+            get {
+                return ResourceManager.GetString("EmailTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a This file can&apos;t read.
         /// </summary>
         public static string FileCantRead {
             get {
                 return ResourceManager.GetString("FileCantRead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a https://github.com/oscferct12/SkiResortApp.
+        /// </summary>
+        public static string GitRepository {
+            get {
+                return ResourceManager.GetString("GitRepository", resourceCulture);
             }
         }
         

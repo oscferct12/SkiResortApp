@@ -37,10 +37,11 @@
                 <TextBlock Style="{StaticResource MaterialDesignDisplay1TextBlock}" TextWrapping="Wrap">Welcome to Ski Resort Challenge</TextBlock>
                 <Button Style="{StaticResource MaterialDesignFlatButton}"
                         Command="{Binding SearchFileCommand}"
-                        CommandParameter="{x:Static Dock.Left}">
+                        CommandParameter="{x:Static Dock.Left}"
+                        Height="60">
                     <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="Binoculars" />
-                        <TextBlock Margin="8 0 0 0">Find the best route</TextBlock>
+                        <materialDesign:PackIcon Kind="Binoculars" Height="23" Width="40" />
+                        <TextBlock Margin="8 0 0 0" FontSize="20">Find the best route</TextBlock>
                     </StackPanel>
                 </Button>
             </StackPanel>
@@ -51,7 +52,7 @@
                       Margin="0 0 0 32">
             <Grid>
                 <StackPanel Orientation="Horizontal">
-                    <materialDesign:Card Width="420" Margin="8 2 4 16" Height="230" HorizontalAlignment="Center">
+                    <materialDesign:Card Width="420" Margin="8 3 4 16" Height="230" HorizontalAlignment="Center">
                         <Grid VerticalAlignment="Center">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
@@ -71,7 +72,8 @@
                                 <DockPanel>
                                     <Button Style="{DynamicResource MaterialDesignFlatButton}" 
                                             DockPanel.Dock="Right"
-                                            x:Name="DonateButton">
+                                            x:Name="DonateButton"
+                                            Command="{Binding GitRepositoryCommand}">
                                         <StackPanel Orientation="Horizontal">
                                             <materialDesign:PackIcon Kind="GithubCircle" />
                                             <TextBlock Margin="8 0 0 0" VerticalAlignment="Center">GitHub</TextBlock>
@@ -91,13 +93,13 @@
                                  HorizontalAlignment="Right" VerticalAlignment="Bottom"
                                  Margin="32" Grid.Row="1">
             <StackPanel>
-                <Button ToolTip="GitHub">
-                    <materialDesign:PackIcon Kind="GithubCircle" Height="20" Width="20" />
+                <Button ToolTip="GitHub" Command="{Binding GitRepositoryCommand}">
+                    <materialDesign:PackIcon Kind="GithubCircle" Height="20" Width="20"  />
                 </Button>
                 <Button ToolTip="Email"
                         Background="{DynamicResource SecondaryAccentBrush}"
                         Foreground="{DynamicResource SecondaryAccentForegroundBrush}"
-                        >
+                        Command="{Binding EmailToCommand}">
                     <materialDesign:PackIcon Kind="Email" />
                 </Button>
             </StackPanel>

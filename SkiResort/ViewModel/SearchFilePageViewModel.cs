@@ -6,6 +6,7 @@
     using SkiResort.Services.Interfaces;
     using SkiResort.Services.Services;
     using SkiResort.View;
+    using System.Diagnostics;
     using System.IO;
     using System.Windows;
     using System.Windows.Input;
@@ -17,22 +18,44 @@
         /// </summary>
         IFileProcessingService _service;
 
-        /// <summary>
-        /// The image source.
-        /// </summary>
-        private string _imageSource;
 
         /// <summary>
-        /// Gets or sets the image source.
+        /// The Email to Command..
         /// </summary>
-        /// <value>The image source.</value>
-        public string ImageSource
+        private ICommand _emailToCommand;
+
+
+        /// <summary>
+        /// Gets or sets The Email to Command.
+        /// </summary>
+        /// <value>The look file.</value>
+        public ICommand EmailToCommand
         {
-            get => _imageSource;
+            get { return _emailToCommand; }
             set
             {
-                _imageSource = value;
-                OnPropertyChanged();
+                _emailToCommand = value;
+                OnPropertyChanged("EmailToCommand");
+            }
+        }
+
+        /// <summary>
+        /// The Git repository Command..
+        /// </summary>
+        private ICommand _gitRepositoryCommand;
+
+
+        /// <summary>
+        /// Gets or sets The Git repository Command.
+        /// </summary>
+        /// <value>The look file.</value>
+        public ICommand GitRepositoryCommand
+        {
+            get { return _gitRepositoryCommand; }
+            set
+            {
+                _gitRepositoryCommand = value;
+                OnPropertyChanged("GitRepositoryCommand");
             }
         }
 
@@ -62,7 +85,6 @@
         public SearchFilePageViewModel()
         {
             Title = AppResources.TitleSkiPage;
-            ImageSource = AppResources.SrcImageSkiIcon;
             RegisterCommand();
         }
 
@@ -73,8 +95,22 @@
         public void RegisterCommand()
         {
             SearchFileCommand = new CommandBase(SearchFileOpenDialog, e => true);
+            GitRepositoryCommand = new CommandBase(GotoGitRepository, e => true);
+            EmailToCommand = new CommandBase(GotoEmail, e => true);
         }
 
+        private void GotoEmail(object e)
+        {
+            Process.Start(AppResources.EmailTo);
+        }
+
+        /// <summary>
+        /// Go to git repository
+        /// </summary>
+        private void  GotoGitRepository(object e)
+        {
+            Process.Start(AppResources.GitRepository);
+        }
 
         /// <summary>
         /// Open dialog for Look file.

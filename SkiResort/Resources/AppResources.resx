@@ -117,8 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="EmailTo" xml:space="preserve">
+    <value>mailto://oscferct@hotmail.com</value>
+  </data>
   <data name="FileCantRead" xml:space="preserve">
     <value>This file can't read</value>
+  </data>
+  <data name="GitRepository" xml:space="preserve">
+    <value>https://github.com/oscferct12/SkiResortApp</value>
   </data>
   <data name="InvalidExtensionFIle" xml:space="preserve">
     <value>Sorry, this file type is not permitted</value>

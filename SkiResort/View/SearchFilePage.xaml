@@ -15,7 +15,7 @@
         FontFamily="{StaticResource MaterialDesignFont}"    
         WindowState="Maximized"
         Title="{Binding Title}" Height="450" Width="800"
-        ResizeMode="NoResize">
+        ResizeMode="CanResize">
 
     <Window.Resources>
         <ResourceDictionary>
